@@ -1,0 +1,32 @@
+[
+  {
+    "theatreId": 16,
+    "theatreName": "INOX",
+    "theatreLocation": "White Field",
+    "theatreCity": "Banglore",
+    "operator": {
+      "operatorId": 17,
+      "name": "White Field Inox",
+      "phone": "7709908490",
+      "email": "pradeep@gmail.com",
+      "password": "pass@123",
+      "theatre": null
+    },
+    "screens": [
+      {
+        "screenId": 18,
+        "screenname": "Screen-1",
+        "timing": "9AM-12PM",
+        "numberofseats": 200,
+        "availableseats": 150
+      },
+      {
+        "screenId": 19,
+        "screenname": "Screen-2",
+        "timing": "9AM-12PM",
+        "numberofseats": 150,
+        "availableseats": 100
+      }
+    ]
+  }
+]
