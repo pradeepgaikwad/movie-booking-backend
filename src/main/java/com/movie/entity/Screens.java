@@ -18,13 +18,10 @@ public class Screens {
 	Long numberofseats;
 	
 	Integer availableseats;
-
-	
 	
 	public Screens() {
 		super();
 	}
-
 
 
 	public Screens(String screenname, String timing, Long numberofseats, Integer availableseats) {
@@ -90,12 +87,10 @@ public class Screens {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Screens [screenId=" + screenId + ", screenname=" + screenname + ", timing=" + timing
 				+ ", numberofseats=" + numberofseats + ", availableseats=" + availableseats + "]";
 	}
-	
 	
 }

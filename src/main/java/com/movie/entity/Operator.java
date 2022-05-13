@@ -21,16 +21,15 @@ public class Operator {
 	
 	@OneToOne(targetEntity = Theatre.class,cascade = CascadeType.ALL)
 	Theatre theatre;
-
-	
 	
 	public Operator() {
 		super();
 	}
 
 
+	
 
-	public Operator(Long operatorId, String name, String phone, String email, String password, Theatre theatre) {
+	public Operator(String name, String phone, String email, String password, Theatre theatre) {
 		super();
 		this.name = name;
 		this.phone = phone;
@@ -38,6 +37,7 @@ public class Operator {
 		this.password = password;
 		this.theatre = theatre;
 	}
+
 
 
 
@@ -104,6 +104,16 @@ public class Operator {
 	public Long getOperatorId() {
 		return operatorId;
 	}
-	
+
+
+
+
+	@Override
+	public String toString() {
+		return "Operator [operatorId=" + operatorId + ", name=" + name + ", phone=" + phone + ", email=" + email
+				+ ", password=" + password + ", theatre=" + theatre + "]";
+	}
+
+
 	
 }

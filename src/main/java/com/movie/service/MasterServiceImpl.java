@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.movie.dao.MasterDao;
 import com.movie.entity.Movie;
 import com.movie.entity.Theatre;
 import com.movie.repo.TheatreRepository;
@@ -32,7 +31,7 @@ public class MasterServiceImpl implements MasterService{
 		System.out.println("theatreDetails "+theatreDetails);
 		//public Theatre findBytheatrename(String str);
 		  Iterable<Theatre> findAll = theatreRepository.findAll();
-		  List<Theatre> th = theatreRepository.findByTheatrename(theatreDetails);
+		  List<Theatre> th = theatreRepository.findBytheatreName(theatreDetails);
 		System.out.println("addTheatre "+findAll);
 		return th;
 	}

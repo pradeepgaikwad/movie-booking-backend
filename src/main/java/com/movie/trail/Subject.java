@@ -20,14 +20,11 @@ public class Subject {
 
 
 	public Subject() {
-		super();
 	}
 
 
 
 	public Subject(Long subjectId, String subjectName) {
-		super();
-		this.subjectId = subjectId;
 		this.subjectName = subjectName;
 	}
 
@@ -36,13 +33,6 @@ public class Subject {
 	public Long getSubjectId() {
 		return subjectId;
 	}
-
-
-
-	public void setSubjectId(Long subjectId) {
-		this.subjectId = subjectId;
-	}
-
 
 
 	public String getSubjectName() {

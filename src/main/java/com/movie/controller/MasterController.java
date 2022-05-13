@@ -1,54 +1,87 @@
 package com.movie.controller;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 //import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.movie.Employee;
+import com.movie.EmployeeRepository;
 import com.movie.entity.Theatre;
 import com.movie.repo.TheatreRepository;
-import com.movie.service.MasterService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class MasterController {
 
-	@Autowired
-	private JdbcTemplate jdbcTemplate;
-
-	@Autowired
-	HttpSession session;
-
-	@Autowired
-	MasterService service;
+	/*
+	 * @Autowired MasterService service;
+	 */
 
 	@Autowired
 	TheatreRepository theatreRepository;
+	
+	@Autowired
+	EmployeeRepository employeeRepository;
+	
+	@PostMapping("/saveTheatreDetails")
+	public Theatre saveTheatreDetails(@RequestBody Theatre details) {
+		System.out.println("details"+details);
+		return (Theatre) theatreRepository.save(details);
+	}
+	
+	@PostMapping("/saveTheatreDetails1")
+	public Theatre saveTheatreDetails1() {
+		Theatre t = new Theatre();
+		t.setTheatreName("GPQ");
+		t.setTheatreLocation("HC");
+		t.setTheatreCity("HYD");
+		//System.out.println("details"+details);
+		return (Theatre) theatreRepository.save(t);
+	}
+	
+	@GetMapping("/getTheatreDetails")
+	public List<Theatre> getTheatreDetails() {
+		//List<Long> ids=new ArrayList<Long>();
+		//ids.add(1L);
+		//theatreRepository.deleteAllById(ids);
+		//return (List<Theatre>) theatreRepository.findAll();
+		return (List<Theatre>) theatreRepository.findAll();
+	}
+	
+	@GetMapping("/getTheatre")
+	public Optional<Theatre> getTheatreDetailsById() {
+		//List<Long> ids=new ArrayList<Long>();
+		//ids.add(1L);
+		//theatreRepository.deleteAllById(ids);
+		//return (List<Theatre>) theatreRepository.findAll();
+		return (Optional<Theatre>) theatreRepository.findById(7L);
+	}
+	
+	@PostMapping("/saveEmp")
+	public Employee saveEmployee(@RequestBody Employee emp) {
+		return employeeRepository.save(emp);
+	}
+	
+		
 
-//	@Autowired
-//	MasterServiceImpl masterImpl;
 	/*
 	 * @RequestMapping(value="/test",method=RequestMethod.GET) public List testapi()
 	 * {
 	 * 
 	 * return service.getMovieDetails(); }
 	 */
+	
 
 	/*********** GET ALL MoviesTest API **********/
+	
+	/*
 	@RequestMapping(value = "/testui", method = RequestMethod.GET)
 	public List<Map<String, Object>> testuiapi() {
 		System.out.println("Inside test method");
@@ -113,4 +146,6 @@ public class MasterController {
 		//return theatreRepository.getTheatre();
 		return null;
 	}
+	*/
+
 }
