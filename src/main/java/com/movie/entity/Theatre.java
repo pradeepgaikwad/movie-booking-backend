@@ -16,7 +16,7 @@ public class Theatre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JoinColumn(referencedColumnName = "theatre1")
+	///@JoinColumn(referencedColumnName = "theatre1")
 	Long theatreId;
 	
 	String theatreName;

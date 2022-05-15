@@ -10,7 +10,7 @@ import javax.persistence.JoinColumn;
 public class Screens {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JoinColumn(referencedColumnName = "screen1")
+	//@JoinColumn(referencedColumnName = "screen1")
 	Long screenId;
 	
 	String screenname;

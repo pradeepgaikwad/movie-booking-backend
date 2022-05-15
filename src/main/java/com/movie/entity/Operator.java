@@ -13,7 +13,7 @@ public class Operator {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@JoinColumn(referencedColumnName = "operator1")
+	//@JoinColumn(referencedColumnName = "operator1")
 	Long operatorId;
 	
 	String name;
