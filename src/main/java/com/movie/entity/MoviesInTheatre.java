@@ -25,9 +25,9 @@ public class MoviesInTheatre {
 	
 	//@JsonIgnore
 	//@ManyToOne
-	@OneToMany(targetEntity = Operator.class ,mappedBy = "operatorId",cascade = CascadeType.ALL)
-	//@JoinColumn(name = "operator",referencedColumnName = "operatorId")
-	Set<Operator> operator1;
+//	@OneToMany(targetEntity = Operator.class ,mappedBy = "operatorId",cascade = CascadeType.ALL)
+//	//@JoinColumn(name = "operator",referencedColumnName = "operatorId")
+//	Set<Operator> operator1;
 	
 	//@JsonIgnore
 	@ManyToOne
@@ -37,18 +37,18 @@ public class MoviesInTheatre {
 	
 	//@JsonIgnore
 	//@ManyToOne
-	@OneToMany(targetEntity = Screens.class ,mappedBy = "screenId",cascade = CascadeType.ALL)
-	//@JoinColumn(name = "screen",referencedColumnName = "screenId")
-	Set<Screens> screen1;
+//	@OneToMany(targetEntity = Screens.class ,mappedBy = "screenId",cascade = CascadeType.ALL)
+//	//@JoinColumn(name = "screen",referencedColumnName = "screenId")
+//	Set<Screens> screen1;
 
 	public MoviesInTheatre() {
 	}
 
-	public MoviesInTheatre(Movie movie1, Set<Operator> operator1, Theatre theatre1, Set<Screens> screen1) {
+	public MoviesInTheatre(Set<Operator> operator1, Theatre theatre1) {
 		this.movie1 = movie1;
-		this.operator1 = operator1;
+		//this.operator1 = operator1;
 		this.theatre1 = theatre1;
-		this.screen1 = screen1;
+		//this.screen1 = screen1;
 	}
 
 	public Movie getMovie1() {
@@ -59,13 +59,6 @@ public class MoviesInTheatre {
 		this.movie1 = movie1;
 	}
 
-	public Set<Operator> getOperator1() {
-		return operator1;
-	}
-
-	public void setOperator1(Set<Operator> operator1) {
-		this.operator1 = operator1;
-	}
 
 	public Theatre getTheatre1() {
 		return theatre1;
@@ -75,13 +68,6 @@ public class MoviesInTheatre {
 		this.theatre1 = theatre1;
 	}
 
-	public Set<Screens> getScreen1() {
-		return screen1;
-	}
-
-	public void setScreen1(Set<Screens> screen1) {
-		this.screen1 = screen1;
-	}
 
 	public Long getMoviesInTheatreId() {
 		return moviesInTheatreId;
@@ -89,10 +75,9 @@ public class MoviesInTheatre {
 
 	@Override
 	public String toString() {
-		return "MoviesInTheatre [moviesInTheatreId=" + moviesInTheatreId + ", movie1=" + movie1 + ", operator1="
-				+ operator1 + ", theatre1=" + theatre1 + ", screen1=" + screen1 + "]";
+		return "MoviesInTheatre [moviesInTheatreId=" + moviesInTheatreId + ", movie1=" + movie1 + ", theatre1="
+				+ theatre1 + "]";
 	}
 
-	
 
 }
