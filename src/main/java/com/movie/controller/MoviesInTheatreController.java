@@ -1,5 +1,6 @@
 package com.movie.controller;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
@@ -53,7 +54,11 @@ public class MoviesInTheatreController {
 		if(th.isPresent()) {
 			t = th.get();
 		}
+		//Set<Movie> movies = new HashSet<Movie>();
+		//movies.add(movie);
 		m.setMovie1(movie);
+		//Set<Theatre> theatre = new HashSet<Theatre>();
+		//theatre.add(t);
 		m.setTheatre1(t);
 		System.out.println("Movie Details ==>> "+details);
 		return (MoviesInTheatre)moviesInTheatreRepository.save(m);	
@@ -75,8 +80,8 @@ public class MoviesInTheatreController {
 		}
 		Operator operator = t.getOperator();
 		Set<Screens> screens = t.getScreens();
-		m.setMovie1(movie);
-		m.setTheatre1(t);
+		//m.setMovie1(movie);
+		//m.setTheatre1(t);
 		System.out.println("Movie Details ==>> "+details);
 		return (MoviesInTheatre)moviesInTheatreRepository.save(m);	
 		}

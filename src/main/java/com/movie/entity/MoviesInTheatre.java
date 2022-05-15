@@ -1,13 +1,15 @@
 package com.movie.entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import javax.persistence.OneToMany;
 
 @Entity
 public class MoviesInTheatre {
@@ -15,30 +17,34 @@ public class MoviesInTheatre {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	Long moviesInTheatreId;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
+	//@OneToMany(targetEntity = Movie.class ,cascade = CascadeType.ALL)
 	@JoinColumn(name = "movie",referencedColumnName = "movieId")
 	Movie movie1;
 	
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "operator",referencedColumnName = "operatorId")
-	Operator operator1;
+	//@JsonIgnore
+	//@ManyToOne
+	@OneToMany(targetEntity = Operator.class ,mappedBy = "operatorId",cascade = CascadeType.ALL)
+	//@JoinColumn(name = "operator",referencedColumnName = "operatorId")
+	Set<Operator> operator1;
 	
-	@JsonIgnore
+	//@JsonIgnore
 	@ManyToOne
+	//@OneToMany(targetEntity = Theatre.class ,mappedBy = "theatreId",cascade = CascadeType.ALL)
 	@JoinColumn(name = "theatre",referencedColumnName = "theatreId")
 	Theatre theatre1;
 	
-	@JsonIgnore
-	@ManyToOne
-	@JoinColumn(name = "screen",referencedColumnName = "screenId")
-	Screens screen1;
+	//@JsonIgnore
+	//@ManyToOne
+	@OneToMany(targetEntity = Screens.class ,mappedBy = "screenId",cascade = CascadeType.ALL)
+	//@JoinColumn(name = "screen",referencedColumnName = "screenId")
+	Set<Screens> screen1;
 
 	public MoviesInTheatre() {
 	}
 
-	public MoviesInTheatre(Movie movie1, Operator operator1, Theatre theatre1, Screens screen1) {
+	public MoviesInTheatre(Movie movie1, Set<Operator> operator1, Theatre theatre1, Set<Screens> screen1) {
 		this.movie1 = movie1;
 		this.operator1 = operator1;
 		this.theatre1 = theatre1;
@@ -53,11 +59,11 @@ public class MoviesInTheatre {
 		this.movie1 = movie1;
 	}
 
-	public Operator getOperator1() {
+	public Set<Operator> getOperator1() {
 		return operator1;
 	}
 
-	public void setOperator1(Operator operator1) {
+	public void setOperator1(Set<Operator> operator1) {
 		this.operator1 = operator1;
 	}
 
@@ -69,11 +75,11 @@ public class MoviesInTheatre {
 		this.theatre1 = theatre1;
 	}
 
-	public Screens getScreen1() {
+	public Set<Screens> getScreen1() {
 		return screen1;
 	}
 
-	public void setScreen1(Screens screen1) {
+	public void setScreen1(Set<Screens> screen1) {
 		this.screen1 = screen1;
 	}
 
@@ -86,8 +92,7 @@ public class MoviesInTheatre {
 		return "MoviesInTheatre [moviesInTheatreId=" + moviesInTheatreId + ", movie1=" + movie1 + ", operator1="
 				+ operator1 + ", theatre1=" + theatre1 + ", screen1=" + screen1 + "]";
 	}
+
 	
-
-
 
 }
