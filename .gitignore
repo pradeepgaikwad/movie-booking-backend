@@ -27,6 +27,7 @@ target/
 /.nb-gradle/
 /.metadata
 /.mvn
+/.mvnw
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
