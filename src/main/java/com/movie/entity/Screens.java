@@ -4,13 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 
 @Entity
 public class Screens {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	//@JoinColumn(referencedColumnName = "screen1")
 	Long screenId;
 	
 	String screenname;
