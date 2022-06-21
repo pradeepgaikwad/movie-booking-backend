@@ -1,14 +1,20 @@
 package com.movie.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 //import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.movie.Employee;
@@ -93,7 +99,7 @@ public class MasterController {
 		List<Map<String, Object>> obj = jdbcTemplate.queryForList(loginQuery);
 		System.out.println("Result==>> " + obj);
 		return obj;
-	}
+	}*/
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<?> loginWeb(@RequestBody String loginForm) {
@@ -105,10 +111,10 @@ public class MasterController {
 		// return new ResponseEntity<>(jsonObj.toString("Logged
 		// Successfully"),HttpStatus.OK);
 		// return jsonObj.valueToString("Logged Successfully");
-		session.setAttribute("isLoggedIn", "Pradeep");
+		//session.setAttribute("isLoggedIn", "Pradeep");
 		return new ResponseEntity<>(obj, HttpStatus.OK);
 	}
-
+/*
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public ResponseEntity<?> logoutWeb(@RequestBody String logoutDetails) {
 		System.out.println("session  " + session.getAttributeNames());
