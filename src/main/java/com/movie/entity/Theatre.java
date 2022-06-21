@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
@@ -15,6 +16,7 @@ public class Theatre {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	///@JoinColumn(referencedColumnName = "theatre1")
 	Long theatreId;
 	
 	String theatreName;
@@ -28,7 +30,10 @@ public class Theatre {
 	
 	@OneToMany(targetEntity = Screens.class,cascade = CascadeType.ALL)
 	Set<Screens> screens;
-	
+
+//	@OneToMany(mappedBy = "theatre1",cascade = CascadeType.ALL)
+//	List<MoviesInTheatre> moviesInTheatres;
+//	
 	public Theatre() {
 		super();
 	}

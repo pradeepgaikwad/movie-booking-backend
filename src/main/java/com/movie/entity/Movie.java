@@ -6,12 +6,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 
 @Entity
 public class Movie {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	//@JoinColumn(referencedColumnName = "movie1")
 	private Long movieId;
 	
 	private String name;
@@ -142,5 +144,10 @@ public class Movie {
 		return "Movie [movieId=" + movieId + ", name=" + name + ", category=" + category + ", dimension=" + dimension
 				+ ", duration=" + duration + ", image=" + Arrays.toString(image) + ", director=" + director
 				+ ", actor1=" + actor1 + ", actor2=" + actor2 + ", actor3=" + actor3 + ", language=" + language + "]";
-	}	
+	}
+
+//	@OneToMany(mappedBy = "movie1",cascade = CascadeType.ALL)
+//	Set<MoviesInTheatre> moviesInTheatre;
+	
+	
 }
