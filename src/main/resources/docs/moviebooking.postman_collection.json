@@ -62,7 +62,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/saveMovies",
+			"name": "saveMovies",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -89,6 +89,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

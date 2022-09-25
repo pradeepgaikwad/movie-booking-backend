@@ -32,8 +32,20 @@ public class MoviesInTheatreController {
 	
 	@PostMapping("/saveMoviesInTheatres")
 	public MoviesInTheatre saveMovies(@RequestBody MoviesInTheatre details) {	
-		System.out.println("Movie Details ==>> "+details);
-		return (MoviesInTheatre)moviesInTheatreRepository.save(details);	
+		MoviesInTheatre m = new MoviesInTheatre();
+		Optional<Movie> mv = movieRepository.findById(details.getMovie1().getMovieId());
+		Movie movie=null;
+		if(mv.isPresent()) {
+			 movie = mv.get();
+		}
+		Optional<Theatre> th = theatreRepository.findById(details.getTheatre1().getTheatreId());
+		Theatre t=null;
+		if(th.isPresent()) {
+			t = th.get();
+		}
+		m.setMovie1(movie);
+		m.setTheatre1(t);
+		return (MoviesInTheatre)moviesInTheatreRepository.save(m);	
 		}
 	
 	@PostMapping("/saveMoviesInTheatres1")
